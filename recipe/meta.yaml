@@ -6,22 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sunkit_image-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sunkit_image-{{ version }}.tar.gz
   sha256: bae1ccd22421eb9166deb3b122975f1cb0becb5471543441a76279e0db89f1f3
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
+    - setuptools
     - setuptools_scm
     - extension-helpers
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - sunpy >=5.0.0
     - scikit-image >=0.18.0
 
@@ -31,6 +32,7 @@ test:
     - pytest-doctestplus
     - pytest-mock
     - dask
+    - python {{ python_min }}
   imports:
     - sunkit_image
     - sunkit_image.enhance
