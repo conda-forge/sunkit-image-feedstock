@@ -1,5 +1,6 @@
 {% set name = "sunkit-image" %}
-{% set version = "0.5.1" %}
+{% set version = "0.6.1" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sunkit_image-{{ version }}.tar.gz
-  sha256: bae1ccd22421eb9166deb3b122975f1cb0becb5471543441a76279e0db89f1f3
+  sha256: 6313e7028677f72302daa47a5558552678e7fbf142c10f30dbe8e4c6f7411c75
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
