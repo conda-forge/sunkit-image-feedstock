@@ -1,6 +1,6 @@
 {% set name = "sunkit-image" %}
 {% set version = "0.7.0" %}
-{% set python_min = "3.10" %}
+{% set python_min = "3.12" %}
 
 package:
   name: {{ name|lower }}
@@ -24,8 +24,12 @@ requirements:
     - extension-helpers
   run:
     - python >={{ python_min }}
-    - sunpy >=5.0.0
-    - scikit-image >=0.18.0
+    - astropy >=6.1.0
+    - numpy >=1.26.0
+    - matplotlib> =3.8.0
+    - scipy >=1.12.0
+    - sunpy >=7.0.0
+    - scikit-image >=0.20.0
 
 test:
   requires:
